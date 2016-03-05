@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>INotifyPropertyChanged</Title>
+      <Author>Mike Schulze</Author>
+      <Description>Provides a simple INotifyChangedProperty for VMs</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>inpc</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Type</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>bool</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>PropertyName</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>MyProperty</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>InitialValue</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>false</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[public $Type$ $PropertyName$
+{
+    get
+    {
+        return m$PropertyName$;
+    }
+    set
+    {
+        Set( nameof( $PropertyName$ ), ref m$PropertyName$, value );
+    }
+}
+private $Type$ m$PropertyName$ = $InitialValue$;
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

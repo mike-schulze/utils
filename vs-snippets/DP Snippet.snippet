@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Dependency Property</Title>
+      <Author>Mike Schulze</Author>
+      <Description>Dependency Property Snippet</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>dp</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Type</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>bool</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>PropertyName</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>MyProperty</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>ParentType</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>MyUserControl</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[public $Type$ $PropertyName$
+{
+    get
+    {
+        return ( $Type$ ) GetValue( $PropertyName$Property );
+    }
+    set
+    {
+        SetValue( $PropertyName$Property, value );
+    }
+}
+
+public static readonly DependencyProperty $PropertyName$Property = DependencyProperty.Register(
+    "$PropertyName$",
+    typeof( $Type$ ),
+    typeof( $ParentType$ ),
+    new PropertyMetadata( On$PropertyName$Changed ) );
+
+private static void On$PropertyName$Changed
+    (
+    DependencyObject aObject,
+    DependencyPropertyChangedEventArgs aArgs
+    )
+{
+    var theControl = aObject as $ParentType$;
+    if( theControl != null )
+    {
+        theControl.On$PropertyName$Changed( aArgs );
+    }
+}
+
+private void On$PropertyName$Changed
+    (
+    DependencyPropertyChangedEventArgs aArgs
+    )
+{
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
